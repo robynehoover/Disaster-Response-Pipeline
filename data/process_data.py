@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
     
-    """Load messages & categories datasets & merge 
+    """Load messages & categories datasets and merges them
     
     inputs:
     messages_filepath: Filepath for file containing messages csv dataset
