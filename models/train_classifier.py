@@ -25,6 +25,9 @@ import pickle
 
 def load_data(database_filepath):
     '''
+    Function that imports a SQLite databse and outputs variables for machine learning pipeline
+    Input: database filepath
+    Output: X,y,category_names variables
     '''
     engine = create_engine('sqlite:///'+database_filepath)
     df = pd.read_sql_table('Messages', engine)
@@ -40,6 +43,11 @@ def load_data(database_filepath):
     return X, y, category_names
 
 def tokenize(text):
+    '''
+    Function that tokenizes raw text
+    Import: text
+    Output: clean tokens
+    '''
     text = re.sub(r'[^a-zA-Z0-9]', ' ', text.lower())
 
     tokens = word_tokenize(text)
@@ -56,6 +64,9 @@ def tokenize(text):
 
 def build_model():
     '''
+    Builds a Multioutput classifier pipeline
+    Input: none
+    Output: Multi Output classifier pipeline
     '''
     pipeline = Pipeline([
         ('features', FeatureUnion([
