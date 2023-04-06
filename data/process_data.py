@@ -53,6 +53,7 @@ def clean_data(df):
     
     # drop the original categories column from `df`
     df = df.drop(['categories'], axis = 1)
+    df = df.drop(['related'], axis = 1)
     
     # concatenate the original dataframe with the new `categories` dataframe
     df = pd.concat([df, categories], axis = 1, sort=False)
