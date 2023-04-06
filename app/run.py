@@ -71,8 +71,8 @@ def index():
                     'title': "Genre"
                 }
             }
-        }
-    {
+        },
+        {
             'data': [
                 Bar(
                     x=response_names,
