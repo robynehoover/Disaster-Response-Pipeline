@@ -60,6 +60,9 @@ def clean_data(df):
     # drop duplicates
     df = df.drop_duplicates()
     
+     # drop related
+    df = df.drop(['related'], axis=1)
+    
     return df
 
 
