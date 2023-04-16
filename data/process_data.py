@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
     
-    """Load messages & categories datasets and merges them
+    """Load messages & categories datasets & merge 
     
     inputs:
     messages_filepath: Filepath for file containing messages csv dataset
@@ -60,8 +60,8 @@ def clean_data(df):
     # drop duplicates
     df = df.drop_duplicates()
     
-     # drop related
-    df = df.drop(['related'], axis=1)
+    # drop related
+    df = df.drop(['related'],axis=1)
     
     return df
 
