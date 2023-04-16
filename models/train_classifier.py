@@ -34,7 +34,6 @@ def load_data(database_filepath):
     
     # Child alone contains only zeros and should be removed
     df = df.drop(['child_alone'],axis=1)
-    df = df.drop(['related'], axis = 1)
     
     X = df.message
     y = df.iloc[:,4:]
