@@ -53,7 +53,7 @@ def index():
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
-   graphs = [
+    graphs = [
         {
             'data': [
                 Bar(
@@ -61,7 +61,7 @@ def index():
                     y=genre_counts
                 )
             ],
-
+            
             'layout': {
                 'title': 'Distribution of Message Genres',
                 'yaxis': {
