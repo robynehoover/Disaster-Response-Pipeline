@@ -16,11 +16,6 @@ from sqlalchemy import create_engine
 app = Flask(__name__)
 
 def tokenize(text):
-    '''
-    Function that tokenizes raw text
-    Input: text
-    Output: clean_tokens
-    '''
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
@@ -48,9 +43,9 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
-    response_counts = df.groupby('response').vaule_counts().nlargest(10)
-    response_names = list(response_counts.index)
-    
+    category_names = df.iloc[:,4:].columns
+    category_values = (df.iloc[:,4:] != 0).sum().values
+   
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
@@ -61,7 +56,7 @@ def index():
                     y=genre_counts
                 )
             ],
-            
+
             'layout': {
                 'title': 'Distribution of Message Genres',
                 'yaxis': {
@@ -75,23 +70,21 @@ def index():
         {
             'data': [
                 Bar(
-                    x=response_names,
-                    y=response_counts
+                    x=category_names,
+                    y=category_values
                 )
             ],
-
             'layout': {
-                'title': 'Top 10 Responses',
+                'title': 'Categories',
                 'yaxis': {
                     'title': "Count"
                 },
                 'xaxis': {
-                    'title': "Response"
+                    'title': "Category Names"
                 }
             }
         }
     ]
-    
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
     graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
