@@ -1,21 +1,26 @@
 # Disaster Response Pipeline Project
 ### Introduction
-In this project, a machine learning pipeline was created that utilizes natural language processing and multi-output classification to create a model that predicts the disaster response needed based on twitter messages. This model was then deployed as a flask application. 
-
+In this project, a machine learning pipeline was created that utilizes natural language processing and multi-output classification to create a model that predicts the disaster response needed based on twitter messages. This model was then deployed as a flask application. This classification allows for these messages to be sent to the appropriate disaster relief group.
+ 
 ### File Structure
 app
-|   - template
-| | - master.html # main page of web app
-| | - go.html # classification result page of web app
-|   - run.py # Flask file that runs app
+
+    - template
+    - master.html # main page of web app
+    - go.html # classification result page of web app
+    - run.py # Flask file that runs app
 data
-|   - disaster_categories.csv # data to process
-|   - disaster_messages.csv # data to process
-|   - process_data.py
-|   - InsertDatabaseName.db # database to save clean data to
+
+    - disaster_categories.csv # data to process
+    - disaster_messages.csv # data to process
+    - process_data.py
+    - InsertDatabaseName.db # database to save clean data to
+    
 models
-|   - train_classifier.py
-|   - classifier.pkl # saved model
+
+    - train_classifier.py
+    - classifier.pkl # saved model
+    
 README.md
 
 ### Instructions:
